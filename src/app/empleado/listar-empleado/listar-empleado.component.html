@@ -1,0 +1,36 @@
+<div class="container h-100 w-50">
+  <div class="row justify-content-center align-items-center h-100">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre Tarea</th>
+          <th scope="col">Cédula</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody  >
+
+        <tr *ngFor="let empleado of empleados" >
+          <td><span>{{empleado.id}}</span></td>
+          <td><span>{{empleado.nombre}}</span></td>
+          <td><span>{{empleado.cedula}}</span></td>
+          <td>  <a class="btn btn-primary" role="button" (click)="openDialog(empleado)">Ver Tareas</a></td>
+          <td>
+            <a class="btn btn-primary" role="button" (click)="rediCrear(empleado)">Actualizar</a>
+          </td>
+          <td>
+            <a class="btn btn-danger" role="button" (click)="eliminar(empleado)">Eliminar</a>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+    <mat-spinner *ngIf="cargando"></mat-spinner>
+  </div>
+</div>
+

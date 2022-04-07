@@ -1,0 +1,32 @@
+<div class="container h-100 w-50">
+  Empleado: {{empleado.nombre}}
+  <div class="row justify-content-center align-items-center h-100">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre Tarea</th>
+          <th scope="col">Estado</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody  >
+
+        <tr *ngFor="let tarea of empleado.tareas" >
+          <td><span>{{tarea.id}}</span></td>
+          <td><span>{{tarea.nombre}}</span></td>
+          <td><span>{{tarea.estado?'ABIERTO':'CERRADO'}}</span></td>
+          <td>
+            <a class="btn btn-danger" role="button" (click)="eliminar(tarea)">Eliminar</a>
+          </td>
+        </tr>
+
+      </tbody>
+
+    </table>
+    <mat-spinner *ngIf="cargando"></mat-spinner>
+  </div>
+</div>
+

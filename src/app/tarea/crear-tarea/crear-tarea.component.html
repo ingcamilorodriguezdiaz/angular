@@ -1,0 +1,38 @@
+<div class="container h-100 ">
+
+  <div class="row justify-content-center align-items-center h-100">
+
+      <div class="container h-100 col-md-3">
+          <div class="row justify-content-center align-items-center h-100">
+
+            <form [formGroup]="formulario" id="user-form" #formRef="ngForm" (ngSubmit)="onSubmit()" novalidate="">
+              <mat-spinner *ngIf="cargando"  ></mat-spinner>
+              <div class="w-100">
+                <mat-form-field class="w-100">
+                  <mat-label>Nombre Tarea</mat-label>
+                  <input matInput placeholder="Nombre" formControlName="nombre"
+                    [(ngModel)]="tarea.nombre" />
+                  <mat-error *ngIf="formulario.controls.nombre.errors && formulario.controls.nombre.errors.required">
+                    El campo nombre tarea es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="w-100">
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Estado</mat-label>
+                  <mat-select [(value)]="tarea.estado">
+                    <mat-option *ngFor="let estado of estados" [value]="estado.numero">
+                      {{estado.titulo}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+              </div>
+              <button mat-raised-button  type="submit" mat-button color="primary" class="btn-lg">Guardar</button>
+              </form>
+          </div>
+
+      </div>
+  </div>
+</div>

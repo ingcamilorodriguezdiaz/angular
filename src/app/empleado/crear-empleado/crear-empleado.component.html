@@ -1,0 +1,53 @@
+<div class="container h-100 ">
+
+  <div class="row justify-content-center align-items-center h-100">
+
+      <div class="container h-100 col-md-3">
+          <div class="row justify-content-center align-items-center h-100">
+
+            <form [formGroup]="formulario" id="user-form" #formRef="ngForm" (ngSubmit)="onSubmit()" novalidate="">
+              <mat-spinner *ngIf="cargando"  ></mat-spinner>
+              <mat-list role="list">
+                <mat-list-item role="listitem" (click)="openDialog()" style="cursor: pointer;">
+                    <mat-icon mat-list-icon>table_chart</mat-icon>
+                    <p>Seleccione una Tarea</p>
+                </mat-list-item>
+            </mat-list>
+            <div class="w-100">
+              <mat-form-field class="w-100">
+                <mat-label>Nombre Tarea</mat-label>
+                <input matInput placeholder="Tarea" formControlName="tarea"
+                  [(ngModel)]="tarea.nombre"  />
+                  <mat-error *ngIf="formulario.controls.tarea.errors && formulario.controls.tarea.errors.required">
+
+                  El campo tarea empleado es obligatorio.
+                </mat-error>
+              </mat-form-field>
+            </div>
+              <div class="w-100">
+                <mat-form-field class="w-100">
+                  <mat-label>Nombre empleado</mat-label>
+                  <input matInput placeholder="Nombre" formControlName="nombre"
+                    [(ngModel)]="empleado.nombre" />
+                  <mat-error *ngIf="formulario.controls.nombre.errors && formulario.controls.nombre.errors.required">
+                    El campo nombre empleado es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="w-100">
+                <mat-form-field class="w-100">
+                  <mat-label>Cédula</mat-label>
+                  <input matInput placeholder="Cédula" formControlName="cedula"
+                    [(ngModel)]="empleado.cedula" />
+                  <mat-error *ngIf="formulario.controls.cedula.errors && formulario.controls.cedula.errors.required">
+                    El campo cédula empleado es obligatorio.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <button mat-raised-button  type="submit" mat-button color="primary" class="btn-lg">Guardar</button>
+              </form>
+          </div>
+
+      </div>
+  </div>
+</div>
